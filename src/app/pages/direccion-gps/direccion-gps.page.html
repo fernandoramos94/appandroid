@@ -1,0 +1,34 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-title class="text-c">Confirma tu ubicación exacta</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <div class="map-wrapper">
+        <div id="map_center">
+            <img src="../../assets/center_marker.png" />
+        </div>
+        <div #map id="map"></div>
+    </div>
+    <!-- <div id="address">
+        <span>{{address}}</span>
+    </div> -->
+</ion-content>
+<ion-footer padding>
+  <ion-label class="text-c text-wrap">
+    <br>
+    <h1>
+      ¿Esta es tu ubicación?
+    </h1>
+    <br>
+    <ion-item>
+      <ion-input placeholder="" [(ngModel)]="address"></ion-input>
+      <ion-button slot="end" color="danger" (click)="buscardir()">
+        <ion-icon name="locate" mode="md"></ion-icon>
+      </ion-button>
+    </ion-item>
+    <br>
+  </ion-label>
+  <ion-button class="btn-medium" expand="block" color="danger" (click)="confirmarDireccion();"> Confirmar ubicación</ion-button>
+</ion-footer>

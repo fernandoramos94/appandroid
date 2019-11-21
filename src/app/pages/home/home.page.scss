@@ -1,0 +1,147 @@
+ion-content{
+  // --background: #F9F9F9 !important;
+  // background: #F9F9F9 !important;
+}
+.item-search{
+    border-radius: 5px !important;
+    background: #F9F9F9 !important;
+    --background: #F9F9F9 !important;
+    ion-icon{
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+    ion-label{
+        color: gray !important;
+        font-weight: 400 !important;
+        font-size: 1rem;
+    }
+}
+  .direccion{
+    font-weight: 300 !important;
+  }
+  ion-toolbar{
+    padding-left: 6px;
+  }
+  // scrollo :horizontal
+  .scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    // margin-bottom: 5%;
+    .card {
+      display: inline-block;
+      margin-right: 3.3%;
+      width: 22%;
+      border-radius: 10px;
+      text-align: center;
+      color: #000;
+      p{
+        font-size: 0.8rem;
+        margin-top: 5px;
+      }
+      .categoria{
+        vertical-align: middle;
+        // border: #ddd solid;
+        background: #EDCE7A;
+        border-radius: 10px;
+        text-align: center;
+        img{
+          padding: 5px;
+          width: 85%;
+          margin: 0 auto;
+        }
+      }
+    }
+    .card-recomendados{
+      width: 40%;
+      margin-right: 3%;
+      display: inline-block;
+      background: #ffffff;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      .recomendados{
+        img{
+          border-top-left-radius: 7px;
+          border-top-right-radius: 7px;
+        }
+      }
+      p{
+        margin: 5px 1px 10px 5px;
+        font-size: 0.9rem;    
+      }
+    }
+  }
+  
+  .scrolling-wrapper-flexbox {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+  
+    .card {
+      flex: 0 0 auto;
+    }
+  }
+  
+  .scrolling-wrapper {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .scrolling-wrapper {
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  
+  .titulo{
+    color: #000000 ;
+    margin-bottom: 2%;
+    display: block;
+    font-weight: 700 !important;
+    font-size: 1.25rem;
+  }
+  ion-item{
+    --padding-start: 0 !important;
+    ion-label{
+      color: #202020;
+      font-weight: 600;
+      font-size: 1.02rem;
+      .name_categoria {
+        color: gray;
+        font-size: 1rem;
+        font-weight: 300;
+        display: block;
+        margin-top: 2%;
+      }
+      .options{
+        color: gray;
+        font-size: 1rem;
+        font-weight: 300;
+        display: block;
+        margin-top: 2%;
+      }
+    }
+  }
+
+  .item-restaurantes{
+    color: #000;
+    font-weight: 600;
+    font-size: 1.25rem;
+    margin: 0;
+    border-radius: 10px;
+    margin-bottom: 3%;
+    border: solid 1px #d3d3d3;
+    ion-thumbnail{
+      width: 85px;
+      height: 85px;
+      margin-bottom: 0;
+      margin-top: 0;
+      img{
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+    }
+    ion-label{
+      margin: 0 !important;
+      padding-top: 4px;
+    }
+  }

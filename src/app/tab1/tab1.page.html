@@ -1,0 +1,111 @@
+<ion-header no-border #toolbarUno>
+    <ion-toolbar>
+        <ion-grid>
+            <ion-row>
+                <ion-col size="12">
+                    <ion-item lines="none">
+                        <ion-label class="ion-text-wrap color-title">
+                            Explore
+                            <p>
+                                <span class="direccion">Calle 68Bis A # 105D 10 </span>
+
+                                <ion-icon name="arrow-down" size="medium" slot="end" mode="ios" class="color-icon"
+                                    style="vertical-align: middle;"></ion-icon>
+                            </p>
+
+                        </ion-label>
+                    </ion-item>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding scrollEvents="true" [toolbarUno]="toolbarUno">
+    <ion-label class="titulo">
+        Categorias
+    </ion-label>
+    <div class="scrolling-wrapper">
+        <div class="card">
+            <div class="categoria">
+                <img src="../../assets/icon/hamburguesa.png" alt="" srcset="">
+            </div>
+            <p>Hamburguesa</p>
+        </div>
+        <div class="card">
+            <div class="categoria">
+                <img src="../../assets/icon/hot-dog.png" alt="" srcset="">
+            </div>
+            <p>Perro Caliente</p>
+        </div>
+        <div class="card">
+            <div class="categoria">
+                <img src="../../assets/icon/pizza.png" alt="" srcset="">
+            </div>
+            <p>Pizza</p>
+        </div>
+        <div class="card">
+            <div class="categoria">
+                <img src="../../assets/icon/pizza.png" alt="" srcset="">
+            </div>
+            <p>Burger</p>
+        </div>
+    </div>
+
+
+    <!-- espacio para los restuarantes -->
+    <ion-label class="titulo" style="margin-top: 5%;">
+        Restuarantes
+    </ion-label>
+    <ion-item href="#">
+        <ion-label class="text-wrap">
+            Nombre restuarantes
+            <span class="name_categoria">Categoria</span>
+            <span class="options">35min - $3.700</span>
+        </ion-label>
+        <ion-thumbnail slot="start">
+            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
+        </ion-thumbnail>
+    </ion-item>
+    <ion-item href="#">
+        <ion-label class="text-wrap">
+            Nombre restuarantes
+            <span class="name_categoria">Categoria</span>
+            <span class="options">35min - $3.700</span>
+        </ion-label>
+        <ion-thumbnail slot="start">
+            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
+        </ion-thumbnail>
+    </ion-item>
+    <ion-item href="#">
+        <ion-label>
+            Nombre restuarantes
+            <span class="name_categoria">Categoria</span>
+            <span class="options">35min - $3.700</span>
+        </ion-label>
+        <ion-thumbnail slot="start">
+            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
+        </ion-thumbnail>
+    </ion-item>
+    <ion-item href="#">
+        <ion-label>
+            Nombre restuarantes
+            <span class="name_categoria">Categoria</span>
+            <span class="options">35min - $3.700</span>
+        </ion-label>
+        <ion-thumbnail slot="start">
+            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
+        </ion-thumbnail>
+    </ion-item>
+    <ion-item href="#">
+        <ion-label>
+            Nombre restuarantes
+            <span class="name_categoria">Categoria</span>
+            <span class="options">35min - $3.700</span>
+        </ion-label>
+        <ion-thumbnail slot="start">
+            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
+        </ion-thumbnail>
+    </ion-item>
+
+</ion-content>

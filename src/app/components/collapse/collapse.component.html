@@ -1,0 +1,45 @@
+<ion-item (click)="toggleAccordion()" class="item-acordeon" lines="none">
+    <!-- <ion-avatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+    </ion-avatar> -->
+    <ion-label>
+        {{ name }}
+    </ion-label>
+    <ion-icon name="arrow-down" *ngIf="!isMenuOpen" slot="end" mode="ios"></ion-icon>
+    <ion-icon name="arrow-up" *ngIf="isMenuOpen" slot="end" mode="ios"></ion-icon>
+</ion-item>
+<div class="expand" [ngClass]="this.isMenuOpen ? 'animated fadeInLeft' : 'inactive'" style="margin-top: 5%;">
+    <ion-list>
+        <ion-item lines="full" routerLink="/detalle-producto">
+            <ion-label class="text-wrap">
+                Nombre Producto
+                <p>Lorem ipsum, dolor sit.</p>
+                <p>$14.000</p>
+            </ion-label>
+            <ion-thumbnail slot="end">
+                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            </ion-thumbnail>
+        </ion-item>
+        <ion-item lines="full">
+            <ion-label class="text-wrap">
+                Nombre Producto
+                <p>Lorem ipsum, dolor sit.</p>
+                <p>$14.000</p>
+            </ion-label>
+            <ion-thumbnail slot="end">
+                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            </ion-thumbnail>
+        </ion-item>
+        <ion-item lines="full">
+            <ion-label class="text-wrap">
+                Nombre Producto
+                <p>Lorem ipsum, dolor sit.</p>
+                <p>$14.000</p>
+            </ion-label>
+            <ion-thumbnail slot="end">
+                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+            </ion-thumbnail>
+        </ion-item>
+    </ion-list>
+</div>
+<div class="divider"></div>

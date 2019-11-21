@@ -1,0 +1,44 @@
+
+.inactive {
+  display: none;
+}
+.item-acordeon{
+    --padding-start: 0 !important;
+    ion-avatar{
+        width: 45px;
+        height: 45px;
+    }
+    ion-label{
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: #000000
+    }
+    ion-icon{
+        font-size: 20px !important;
+    }
+}
+.expand{
+    ion-list{
+        ion-item{
+            margin-bottom: 5%;
+            ion-label{
+                font-size: 1.1rem;
+                p{
+                    font-size: 0.95rem;
+                    margin-top: 2%;
+                }
+            }
+            ion-thumbnail{
+                height: 75px;
+                width: 75px;
+            }
+
+        }
+    }
+}
+.divider{
+    height: 7px !important;
+    width: 100% !important;
+    margin-top: 1% !important;
+    margin-bottom: 1% !important;
+}

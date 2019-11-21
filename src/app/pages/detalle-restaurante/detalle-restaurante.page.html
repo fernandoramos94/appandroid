@@ -1,0 +1,62 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color="danger" icon="arrow-back"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Nombre Restaurante
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-label class="datos_restaurante">
+    Nombre de Restaurante
+    <p>Categorias</p>
+    <p>36imin - $3.400 - 4.5</p>
+  </ion-label>
+  <ion-label class="titulo">
+      Populares
+  </ion-label>
+  <div class="scrolling-wrapper">
+      <div class="card-recomendados">
+          <div class="recomendados">
+              <img src="../../../assets/img/deep-pan.png" alt="" srcset="">
+          </div>
+          <p>Hamburguesa</p>
+          <p>$10.000</p>
+      </div>
+      <div class="card-recomendados">
+          <div class="recomendados">
+              <img src="../../../assets/img/deep-pan.png" alt="" srcset="">
+          </div>
+          <p>Perro Caliente</p>
+          <p>$10.000</p>
+      </div>
+      <div class="card-recomendados">
+          <div class="recomendados">
+              <img src="../../../assets/img/deep-pan.png" alt="" srcset="">
+          </div>
+          <p>Hamburguesa</p>
+          <p>$10.000</p>
+      </div>
+      <div class="card-recomendados">
+          <div class="recomendados">
+              <img src="../../../assets/img/deep-pan.png" alt="" srcset="">
+          </div>
+          <p>Hamburguesa</p>
+          <p>$10.000</p>
+      </div>
+  </div>
+  <div class="divider"></div>
+  <app-collapse *ngFor="let technology of technologies" name="{{ technology.name }}"
+    description="{{ technology.description }}" image="{{ technology.image }}" (change)="captureName($event)">
+  </app-collapse>
+</ion-content>
+<ion-footer>
+  <ion-button expand="block" color="danger" size="medium" routerLink="/checkout" class="btn-medium">
+    Ver carrito
+  </ion-button>
+</ion-footer>

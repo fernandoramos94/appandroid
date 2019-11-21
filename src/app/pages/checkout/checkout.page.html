@@ -1,0 +1,118 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button color="danger"></ion-back-button>
+        </ion-buttons>
+        <ion-title class="text-c">CARRITO</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-item lines="none">
+        <ion-label>
+            Dirección entrega
+        </ion-label>
+    </ion-item>
+    <ion-item lines="none" detail="true">
+        <ion-thumbnail slot="start">
+            <!-- <img src="../../../assets/img/maps.jpeg" alt="" srcset=""> -->
+            <ion-img src="../../../assets/img/maps.jpeg"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+            <p class="alias">Alias</p>
+            <p class="direccion">Calle 68Bis a # 105d - 10</p>
+            <p class="de">Piso</p>
+        </ion-label>
+    </ion-item>
+    <ion-item lines="none">
+        <ion-label class="detalleEntrega">
+            <p class="titleDetalle">Detalle entrega</p>
+            <p>Ahora, 45-55 min - $4.000</p>
+        </ion-label>
+    </ion-item>
+    <div class="divider"></div>
+    <ion-item class="productos">
+        <ion-label>
+            <h1>Nombre Tienda</h1>
+        </ion-label>
+    </ion-item>
+    <ion-item class="productos">
+        <ion-label>
+            <span>
+                1x Hamburguesa
+            </span>
+            <span color="danger" class="text-r float-r">
+                $8.900
+            </span>
+        </ion-label>
+    </ion-item>
+    <ion-item class="productos">
+        <ion-label>
+            <span>
+                1x Hamburguesa
+            </span>
+            <span color="danger" class="text-r float-r">
+                $8.900
+            </span>
+        </ion-label>
+    </ion-item>
+    <ion-item class="productos">
+        <ion-label>
+            <a style="color: #f04141; display: block;" class="text-c">Agregar más productos</a>
+        </ion-label>
+    </ion-item>
+    <ion-item class="productos" lines="none">
+        <ion-label class="text-wrap">
+            <p class="subtotal">
+                <span>Subtotal</span>
+                <span class="text-r float-r">$8.900</span>
+            </p>
+            <p class="subtotal">
+                <span>Costo Domicilio</span>
+                <span class="text-r float-r">$2.900</span>
+            </p>
+            <p class="total">
+                <span>Total</span>
+                <span class="text-r float-r">$11.000</span>
+            </p>
+        </ion-label>
+
+    </ion-item>
+    <div class="divider"></div>
+    <ion-item class="productos">
+        <ion-label class="text-formaPago">
+            Forma de pago
+        </ion-label>
+    </ion-item>
+    <ion-item class="productos">
+        <ion-label class="text-wrap">
+            <span>
+                <span>Efectivo</span><br>
+                <span class="valorEfectivo">Cambio de $50.000</span>
+            </span>
+        </ion-label>
+        <ion-label class="text-wrap" slot="end">
+            <span class="float-r text-r">
+                <a style="color: #f04141">Cambiar</a>
+            </span>
+        </ion-label>
+
+    </ion-item>
+    <br><br>
+
+    <ion-grid>
+        <ion-row>
+            <ion-col size=6>
+                <ion-button color="success" expand="block" class="btn-medium login" fill="outline">Iniciar Sesion</ion-button>
+            </ion-col>
+            <ion-col size=6>
+                <ion-button color="success" expand="block" class="btn-medium login" fill="outline">Registrarme</ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+<ion-footer no-border style="display: none;">
+    <ion-button color="danger" expand="block" size="medium" class="btn-medium">
+        Hacer pedido
+    </ion-button>
+</ion-footer>

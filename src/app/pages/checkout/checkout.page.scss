@@ -1,0 +1,54 @@
+.productos{
+    margin-right: 16px;
+    --padding-end: 0;
+    --padding-inline-end: 0;
+    padding-right: 0 !important;
+    --inner-padding-end: 0!important
+}
+.subtotal{
+    font-size: 15px;
+}
+.total{
+    font-size: 17px;
+    color: #000000;
+    font-weight: 600;
+    margin-top: 10px;
+}
+.valorEfectivo{
+    color: #6f6f6f;
+    font-size: 14px;
+}
+.text-formaPago{
+    font-size: 19px;
+    color: #000000;
+    font-weight: 600;
+}
+.detalleEntrega{
+    .titleDetalle{
+        font-size: 17px;
+        color: #2f2f2f;
+    }
+    p{
+        font-size: 14px;
+        color: #6f6f6f;
+    }
+}
+.direccion{
+    color: #000000;
+    font-size: 15px;
+    line-height: 1;;
+}
+.alias, .de {
+    color: #6f6f6f;
+    line-height: 1;
+}
+h1{
+    font-size: 20px;
+    font-weight: bolder;
+}
+.login{
+    --border-width: 1px;
+    text-transform: capitalize;
+    font-size: 18px;
+    font-weight: 400 !important;
+}
