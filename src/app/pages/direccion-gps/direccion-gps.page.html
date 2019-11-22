@@ -6,9 +6,9 @@
 
 <ion-content>
     <div class="map-wrapper">
-        <div id="map_center">
+        <!-- <div id="map_center">
             <img src="../../assets/center_marker.png" />
-        </div>
+        </div> -->
         <div #map id="map"></div>
     </div>
     <!-- <div id="address">
@@ -23,7 +23,7 @@
     </h1>
     <br>
     <ion-item>
-      <ion-input placeholder="" [(ngModel)]="address"></ion-input>
+      <ion-input placeholder="" [(ngModel)]="address" style="text-transform: capitalize;"></ion-input>
       <ion-button slot="end" color="danger" (click)="buscardir()">
         <ion-icon name="locate" mode="md"></ion-icon>
       </ion-button>

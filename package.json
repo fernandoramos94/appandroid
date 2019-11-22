@@ -33,8 +33,7 @@
     "@ionic/angular": "^4.7.1",
     "@ionic/storage": "^2.2.0",
     "animate.css": "^3.7.2",
-    "cordova-android": "^8.1.0",
-    "cordova-plugin-accountkit": "1.4.0",
+    "cordova-android": "8.1.0",
     "cordova-plugin-android-permissions": "^1.0.2",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-facebook4": "^6.2.0",
@@ -93,15 +92,11 @@
         "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
       },
       "cordova-plugin-ionic-keyboard": {},
-      "cordova-plugin-accountkit": {
-        "APP_ID": "548566399315222",
-        "APP_NAME": "newApp",
-        "CLIENT_TOKEN": "6b163f2aae124d2ca68c07008e449048",
-        "API_VERSION": "V1.1"
-      },
       "cordova-plugin-facebook4": {
         "APP_ID": "548566399315222",
-        "APP_NAME": "newApp"
+        "APP_NAME": "newApp",
+        "FACEBOOK_HYBRID_APP_EVENTS": "false",
+        "FACEBOOK_ANDROID_SDK_VERSION": "5.5.2"
       },
       "cordova-plugin-googleplus": {
         "PLAY_SERVICES_VERSION": "15.0.1"

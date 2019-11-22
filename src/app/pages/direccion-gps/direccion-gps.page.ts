@@ -23,6 +23,9 @@ export class DireccionGpsPage implements OnInit {
     userLocation;
     userCity;
     latLngResult;
+
+    mapOptions; 
+
     locationCoords: any;
 
     dir: any;
@@ -66,18 +69,18 @@ export class DireccionGpsPage implements OnInit {
 
     loadMap(status) {
         let latLng = new google.maps.LatLng(this.locationCoords.latitude, this.locationCoords.longitude);
-        let mapOptions = {
+        this.mapOptions = {
             center: latLng,
             zoom: 17,
             disableDefaultUI: true,
             mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
-        this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
+        this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
         if(status == false) {this.adddd()};
-        
+        this.addMarkert();
 
-        this.map.addListener('center_changed', (e) => {
+        this.map.addListener('tilesloaded', () => {
             this.locationCoords.latitude = this.map.center.lat();
             this.locationCoords.longitude = this.map.center.lng();
             this.adddd();
@@ -91,24 +94,19 @@ export class DireccionGpsPage implements OnInit {
         };
         this.nativeGeocoder.reverseGeocode(this.locationCoords.latitude, this.locationCoords.longitude, options)
         .then((result: NativeGeocoderResult[]) => {
-            this.address = this.generateAddress(result[0]);
+            this.address = result[0].thoroughfare + " " + result[0].subThoroughfare;
         })
         .catch((error: any) => console.log(error));
     }
-
-    generateAddress(addressObj){
-        let obj = [];
-        let address = "";
-        for (let key in addressObj) {
-          obj.push(addressObj[key]);
-        }
-        obj.reverse();
-        for (let val in obj) {
-          if(obj[val].length)
-          address += obj[val]+', ';
-        }
-      return address.slice(0, -2);
+    addMarkert(){
+        let marker = new google.maps.marker({
+            map: this.map,
+            animation: google.maps.Animation.DROP,
+            position: this.mapOptions.center,
+            icon : iconMap
+        })
     }
+
     confirmarDireccion() {
         this.storage.set("direccion", this.locationCoords);
         this.modal.dismiss(true);
@@ -122,6 +120,7 @@ export class DireccionGpsPage implements OnInit {
         .then((result: NativeGeocoderResult[]) => {
             this.locationCoords.latitude = result[0].latitude;
             this.locationCoords.longitude = result[0].longitude;
+            this.locationCoords.direccion = this.address,
             this.loadMap(true);
         }).catch((error: any) => alert(JSON.stringify(error)));
     }
