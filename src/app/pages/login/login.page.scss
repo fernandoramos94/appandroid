@@ -1,0 +1,47 @@
+.contenedor{
+    height: auto;
+    padding-left: 16px;
+    padding-right: 16px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding-top: 40%;
+    --background: url('../../../assets/img/Trazado.png');
+    background: url('../../../assets/img/Trazado.png') no-repeat center center / cover;
+}
+span{
+    font-size: 1.2rem;
+    color: #ffffff;
+    margin-bottom: 3%;
+}
+ion-item{
+    border-radius: 30px;
+    --background: transparent !important; 
+    color: #ffffff;
+    border: #ffffff solid 1.5px;
+    margin-bottom: 4%;
+}
+h1{
+    font-size: 1.8rem;
+    color: #ffffff;
+    margin-bottom: 1%;
+}
+.btn-login{
+    --background: #ffffff;
+    color: #6C63FF;
+    height: 50px !important;
+    --border-radius: 30px !important;
+    border-radius: 30px !important;
+}
+#btn-login{
+    --border-radius: 30px !important;
+    border-radius: 30px !important;
+}
+p{
+    color: #ffffff;
+    font-size: 18px;
+    a{
+        color: #f7263a;
+    }
+}

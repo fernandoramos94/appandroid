@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, NgZone } from '@angular/core'
 import { Geolocation, Geoposition } from '@ionic-native/geolocation/ngx';
 import { LocationAccuracy } from '@ionic-native/location-accuracy/ngx';
 import { Storage } from '@ionic/storage';
-import { ModalController, Platform } from '@ionic/angular';
+import { ModalController, Platform, AlertController } from '@ionic/angular';
 import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 
@@ -24,7 +24,7 @@ export class DireccionGpsPage implements OnInit {
     userCity;
     latLngResult;
 
-    mapOptions; 
+    mapOptions;
 
     locationCoords: any;
 
@@ -38,7 +38,8 @@ export class DireccionGpsPage implements OnInit {
         private androidPermissions: AndroidPermissions,
         private nativeGeocoder: NativeGeocoder,
         private platform: Platform,
-        public zone: NgZone
+        public zone: NgZone,
+        private alertController: AlertController
     ) {
         this.locationCoords = {
             latitude: "",
@@ -77,53 +78,81 @@ export class DireccionGpsPage implements OnInit {
         }
 
         this.map = new google.maps.Map(this.mapElement.nativeElement, this.mapOptions);
-        if(status == false) {this.adddd()};
-        this.addMarkert();
 
-        this.map.addListener('tilesloaded', () => {
-            this.locationCoords.latitude = this.map.center.lat();
-            this.locationCoords.longitude = this.map.center.lng();
-            this.adddd();
+        if (status == false) { this.adddd() };
+
+        var marker = new google.maps.Marker({
+            position:latLng,
+            map: this.map,
+            title: this.address,
+            draggable:true,
+            // icon: iconMap
         });
+        // marker.setMap(this.map);
+
     }
-    
+
     adddd() {
         let options: NativeGeocoderOptions = {
             useLocale: true,
             maxResults: 5
         };
         this.nativeGeocoder.reverseGeocode(this.locationCoords.latitude, this.locationCoords.longitude, options)
-        .then((result: NativeGeocoderResult[]) => {
-            this.address = result[0].thoroughfare + " " + result[0].subThoroughfare;
-        })
-        .catch((error: any) => console.log(error));
-    }
-    addMarkert(){
-        let marker = new google.maps.marker({
-            map: this.map,
-            animation: google.maps.Animation.DROP,
-            position: this.mapOptions.center,
-            icon : iconMap
-        })
+            .then((result: NativeGeocoderResult[]) => {
+                this.address = result[0].thoroughfare + " " + result[0].subThoroughfare;
+            })
+            .catch((error: any) => console.log(error));
     }
 
     confirmarDireccion() {
         this.storage.set("direccion", this.locationCoords);
         this.modal.dismiss(true);
     }
-    buscardir(){
+    buscardir() {
         let options: NativeGeocoderOptions = {
             useLocale: true,
             maxResults: 1
         };
         this.nativeGeocoder.forwardGeocode(this.address, options)
-        .then((result: NativeGeocoderResult[]) => {
-            this.locationCoords.latitude = result[0].latitude;
-            this.locationCoords.longitude = result[0].longitude;
-            this.locationCoords.direccion = this.address,
-            this.loadMap(true);
-        }).catch((error: any) => alert(JSON.stringify(error)));
+            .then((result: NativeGeocoderResult[]) => {
+                this.locationCoords.latitude = result[0].latitude;
+                this.locationCoords.longitude = result[0].longitude;
+                this.locationCoords.direccion = this.address;
+                this.loadMap(true);
+            }).catch((error: any) => alert(JSON.stringify(error)));
     }
+    async cambiarDireccion() {
+        const alert = await this.alertController.create({
+            backdropDismiss: false,
+            mode: "ios",
+            header: 'Ingrese su dirección',
+            inputs: [
+                {
+                    name: 'direccion',
+                    type: 'text',
+                    placeholder: 'Dirección'
+                },
+            ],
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    cssClass: 'secondary',
+                    handler: () => {
+                    }
+                }, {
+                    text: 'Ok',
+                    handler: (e) => {
+                        this.address = e.direccion;
+                        this.buscardir();
+                    }
+                }
+            ]
+        });
+
+        await alert.present();
+    }
+
 
 
 }

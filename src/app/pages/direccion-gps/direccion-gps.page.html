@@ -1,21 +1,15 @@
-<ion-header >
+<ion-header>
   <ion-toolbar>
     <ion-title class="text-c">Confirma tu ubicación exacta</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <div class="map-wrapper">
-        <!-- <div id="map_center">
-            <img src="../../assets/center_marker.png" />
-        </div> -->
-        <div #map id="map"></div>
-    </div>
-    <!-- <div id="address">
-        <span>{{address}}</span>
-    </div> -->
+  <div class="map-wrapper">
+    <div #map id="map"></div>
+  </div>
 </ion-content>
-<ion-footer padding>
+<ion-footer>
   <ion-label class="text-c text-wrap">
     <br>
     <h1>
@@ -23,12 +17,22 @@
     </h1>
     <br>
     <ion-item>
-      <ion-input placeholder="" [(ngModel)]="address" style="text-transform: capitalize;"></ion-input>
-      <ion-button slot="end" color="danger" (click)="buscardir()">
-        <ion-icon name="locate" mode="md"></ion-icon>
-      </ion-button>
+      <ion-icon slot="start" color="danger" name="locate" mode="md"></ion-icon>
+      <ion-label> {{address}}</ion-label>
     </ion-item>
     <br>
   </ion-label>
-  <ion-button class="btn-medium" expand="block" color="danger" (click)="confirmarDireccion();"> Confirmar ubicación</ion-button>
+  <ion-grid>
+    <ion-row>
+      <ion-col size=6>
+        <ion-button class="btn-medium" expand="block" color="danger" (click)="cambiarDireccion();"> Cambiar
+        </ion-button>
+      </ion-col>
+      <ion-col size=6>
+        <ion-button class="btn-medium" expand="block" color="danger" (click)="confirmarDireccion();"> Confirmar
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
 </ion-footer>

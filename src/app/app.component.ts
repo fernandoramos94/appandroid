@@ -13,6 +13,7 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent {
+  tieneToken : any = false;
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
@@ -21,7 +22,17 @@ export class AppComponent {
     private router : Router,
     private androidPermissions: AndroidPermissions
   ) {
-    this.initializeApp();
+    this.storage.get("TOKEN").then((resp)=>{
+      if(resp != null){
+        this.tieneToken = true;
+        this.initializeApp();
+      }else{
+        this.tieneToken = false;
+        this.initializeApp();
+      }
+      
+    })
+    
   }
 
   initializeApp() {
@@ -29,19 +40,14 @@ export class AppComponent {
       this.statusBar.show();
       this.statusBar.backgroundColorByName('white');
       this.statusBar.styleDefault();
-
       this.checkPermisions();
-
-      
-      this.storage.get("TOKEN").then((resp)=>{
-        if(resp){
+        if(this.tieneToken){
           this.router.navigateByUrl("/");
           this.splashScreen.hide();
         }else{
           this.router.navigateByUrl("/login");
           this.splashScreen.hide();
         }
-      })
     });
   }
 

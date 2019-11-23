@@ -22,7 +22,7 @@ export class LoginPage implements OnInit {
       facebookNotificationsEnabled: true
     }, (data) => {
       (<any>window).AccountKitPlugin.getAccount((info) => {
-        this.navCtrl.navigateRoot("/tabs");
+        this.navCtrl.navigateRoot("/home");
       }, (error) => {
         alert(error);
       })
