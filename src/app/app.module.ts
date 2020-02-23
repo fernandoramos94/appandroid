@@ -1,5 +1,5 @@
 import { LoginPageModule } from './pages/login/login.module';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { Facebook } from '@ionic-native/facebook/ngx';
@@ -12,11 +12,13 @@ import { AppRoutingModule } from './app-routing.module';
 import {LocationAccuracy} from '@ionic-native/location-accuracy/ngx';
 import {NativeGeocoder} from '@ionic-native/native-geocoder/ngx'
 import { AppComponent } from './app.component';
-import { BorrarProductosPageModule } from './pages/borrar-productos/borrar-productos.module';
 import { CambiarContrasenaPageModule } from './pages/cambiar-contrasena/cambiar-contrasena.module';
 import {AndroidPermissions} from '@ionic-native/android-permissions/ngx';
 import { DireccionGpsPageModule } from './pages/direccion-gps/direccion-gps.module';
 import { GoogleMaps } from '@ionic-native/google-maps/ngx';
+import { HttpClientModule } from '@angular/common/http';
+import {HTTP} from '@ionic-native/http/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -25,10 +27,10 @@ import { GoogleMaps } from '@ionic-native/google-maps/ngx';
     IonicModule.forRoot(), 
     IonicStorageModule.forRoot(), 
     AppRoutingModule, 
-    BorrarProductosPageModule, 
     CambiarContrasenaPageModule,
     LoginPageModule,
-    DireccionGpsPageModule
+    DireccionGpsPageModule,
+    HttpClientModule
   ],
   providers: [
     StatusBar,
@@ -39,8 +41,10 @@ import { GoogleMaps } from '@ionic-native/google-maps/ngx';
     AndroidPermissions,
     NativeGeocoder,
     GoogleMaps,
+    HTTP,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

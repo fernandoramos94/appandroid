@@ -33,9 +33,14 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content padding myScrollVanish scrollEvents="true" [toolbarUno]="toolbarUno">
+<ion-content myScrollVanish scrollEvents="true" [toolbarUno]="toolbarUno">
 
-    <ion-label class="titulo">
+
+    <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" class="refresher-native">
+        <ion-refresher-content></ion-refresher-content>
+      </ion-refresher>
+
+    <!-- <ion-label class="titulo">
         Recomendados
     </ion-label>
     <div class="scrolling-wrapper">
@@ -64,132 +69,180 @@
             <p>Hamburguesa</p>
         </div>
     </div>
+    <div class="divider"></div> -->
+
+    <ion-grid *ngIf="tags.length">
+        <ion-row>
+            <ion-col>
+                <ion-label class="titulo">
+                    Categorias
+                </ion-label>
+                <div class="scrolling-wrapper">
+                    <div class="card" *ngFor="let item of tags">
+                        <div class="categoria">
+                            <img src="{{item.icon}}" alt="" srcset="">
+                            <!-- <img src="../../assets/icon/hamburguesa.png" alt="" srcset=""> -->
+                        </div>
+                        <p>{{item.name}}</p>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+    <ion-grid *ngIf="!tags.length">
+        <ion-row>
+            <ion-col>
+                <ion-label class="titulo">
+                    Categorias
+                </ion-label>
+                <div class="scrolling-wrapper">
+                    <div class="card">
+                        <div class="categoria">
+                            <ion-avatar slot="start" class="icono_rest" style="margin: 0 auto;">
+                                <ion-skeleton-text animated></ion-skeleton-text>
+                            </ion-avatar>
+                            <!-- <img src="../../assets/icon/hamburguesa.png" alt="" srcset=""> -->
+                        </div>
+                        <p>
+                            <ion-skeleton-text animated style="width: 80%; margin: 0 auto;"></ion-skeleton-text>
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="categoria">
+                            <ion-avatar slot="start" class="icono_rest" style="margin: 0 auto;">
+                                <ion-skeleton-text animated></ion-skeleton-text>
+                            </ion-avatar>
+                            <!-- <img src="../../assets/icon/hamburguesa.png" alt="" srcset=""> -->
+                        </div>
+                        <p>
+                            <ion-skeleton-text animated style="width: 80%; margin: 0 auto;"></ion-skeleton-text>
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="categoria">
+                            <ion-avatar slot="start" class="icono_rest" style="margin: 0 auto;">
+                                <ion-skeleton-text animated></ion-skeleton-text>
+                            </ion-avatar>
+                            <!-- <img src="../../assets/icon/hamburguesa.png" alt="" srcset=""> -->
+                        </div>
+                        <p>
+                            <ion-skeleton-text animated style="width: 80%; margin: 0 auto;"></ion-skeleton-text>
+                        </p>
+                    </div>
+                </div>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
     <div class="divider"></div>
-    <ion-label class="titulo">
-        Categorias
-    </ion-label>
-    <div class="scrolling-wrapper">
-        <div class="card">
-            <div class="categoria">
-                <img src="../../assets/icon/hamburguesa.png" alt="" srcset="">
-            </div>
-            <p>Hamburguesa</p>
-        </div>
-        <div class="card">
-            <div class="categoria">
-                <img src="../../assets/icon/hot-dog.png" alt="" srcset="">
-            </div>
-            <p>Perro Caliente</p>
-        </div>
-        <div class="card">
-            <div class="categoria">
-                <img src="../../assets/icon/pizza.png" alt="" srcset="">
-            </div>
-            <p>Pizza</p>
-        </div>
-        <div class="card">
-            <div class="categoria">
-                <img src="../../assets/icon/pizza.png" alt="" srcset="">
-            </div>
-            <p>Burger</p>
-        </div>
+
+    <div *ngIf="!stores.length">
+        <ion-list class="ion-padding">
+            <ion-item class="item-restaurantes" lines="none">
+                <ion-avatar slot="start" class="icono_rest">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                    <h3 style="height: 22px;">
+                        <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                        <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                    </p>
+                </ion-label>
+            </ion-item>
+            <ion-item class="item-restaurantes" lines="none">
+                <ion-avatar slot="start" class="icono_rest">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                    <h3 style="height: 22px;">
+                        <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                        <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                    </p>
+                </ion-label>
+            </ion-item>
+            <ion-item class="item-restaurantes" lines="none">
+                <ion-avatar slot="start" class="icono_rest">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                    <h3 style="height: 22px;">
+                        <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                        <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                    </p>
+                </ion-label>
+            </ion-item>
+            <ion-item class="item-restaurantes" lines="none">
+                <ion-avatar slot="start" class="icono_rest">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                    <h3 style="height: 22px;">
+                        <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                        <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                    </p>
+                </ion-label>
+            </ion-item>
+            <ion-item class="item-restaurantes" lines="none">
+                <ion-avatar slot="start" class="icono_rest">
+                    <ion-skeleton-text animated></ion-skeleton-text>
+                </ion-avatar>
+                <ion-label>
+                    <h3 style="height: 22px;">
+                        <ion-skeleton-text animated style="width: 90%"></ion-skeleton-text>
+                    </h3>
+                    <p>
+                        <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                    </p>
+                    <p>
+                        <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                    </p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
     </div>
-
-    <div class="divider"></div>
-
     <!-- espacio para los restuarantes -->
-    <ion-label class="titulo">
-        Restuarantes
-    </ion-label>
-    <ion-item class="item-restaurantes" lines="none" routerLink="/detalle-restaurante">
-        <ion-label class="text-wrap">
-            Nombre restuarantes
-            <span class="name_categoria">Categoria</span>
-            <span class="options">35min - $3.700</span>
-        </ion-label>
-        <ion-thumbnail slot="start">
-            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
-        </ion-thumbnail>
-    </ion-item>
-    <ion-item class="item-restaurantes" lines="none">
-        <ion-label class="text-wrap">
-            Nombre restuarantes
-            <span class="name_categoria">Categoria</span>
-            <span class="options">35min - $3.700</span>
-        </ion-label>
-        <ion-thumbnail slot="start">
-            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
-        </ion-thumbnail>
-    </ion-item>
-    <ion-item class="item-restaurantes" lines="none">
-        <ion-label>
-            Nombre restuarantes
-            <span class="name_categoria">Categoria</span>
-            <span class="options">35min - $3.700</span>
-        </ion-label>
-        <ion-thumbnail slot="start">
-            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
-        </ion-thumbnail>
-    </ion-item>
-    <ion-item class="item-restaurantes" lines="none">
-        <ion-label>
-            Nombre restuarantes
-            <span class="name_categoria">Categoria</span>
-            <span class="options">35min - $3.700</span>
-        </ion-label>
-        <ion-thumbnail slot="start">
-            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
-        </ion-thumbnail>
-    </ion-item>
-    <ion-item class="item-restaurantes" lines="none">
-        <ion-label>
-            Nombre restuarantes
-            <span class="name_categoria">Categoria</span>
-            <span class="options">35min - $3.700</span>
-        </ion-label>
-        <ion-thumbnail slot="start">
-            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
-        </ion-thumbnail>
-    </ion-item>
-    <ion-item class="item-restaurantes" lines="none">
-        <ion-label>
-            Nombre restuarantes
-            <span class="name_categoria">Categoria</span>
-            <span class="options">35min - $3.700</span>
-        </ion-label>
-        <ion-thumbnail slot="start">
-            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
-        </ion-thumbnail>
-    </ion-item>
-    <ion-item class="item-restaurantes" lines="none">
-        <ion-label>
-            Nombre restuarantes
-            <span class="name_categoria">Categoria</span>
-            <span class="options">35min - $3.700</span>
-        </ion-label>
-        <ion-thumbnail slot="start">
-            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
-        </ion-thumbnail>
-    </ion-item>
-    <ion-item class="item-restaurantes" lines="none">
-        <ion-label>
-            Nombre restuarantes
-            <span class="name_categoria">Categoria</span>
-            <span class="options">35min - $3.700</span>
-        </ion-label>
-        <ion-thumbnail slot="start">
-            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
-        </ion-thumbnail>
-    </ion-item>
-    <ion-item class="item-restaurantes" lines="none">
-        <ion-label>
-            Nombre restuarantes
-            <span class="name_categoria">Categoria</span>
-            <span class="options">35min - $3.700</span>
-        </ion-label>
-        <ion-thumbnail slot="start">
-            <img src="https://ionicframework.com/docs/demos/api/thumbnail/thumbnail.svg">
-        </ion-thumbnail>
-    </ion-item>
-
+    <ion-grid *ngIf="stores.length">
+        <ion-row>
+            <ion-col>
+                <ion-label class="titulo">
+                    Restuarantes
+                </ion-label>
+                <ion-item *ngFor="let item of stores" class="item-restaurantes" lines="none"
+                    routerLink="/detalle-restaurante/{{item.store_id}}">
+                    <ion-label class="text-wrap">
+                        {{item.name}}
+                        <span class="name_categoria">Categoria</span>
+                        <span class="options">{{item.eta}} - {{item.delivery_price | currency:"$":true:"1.0"}} -
+                            {{item.distance_text}}</span>
+                    </ion-label>
+                    <ion-avatar slot="start" class="icono_rest">
+                        <img src="https://images.rappi.com/restaurants_logo/{{item.logo}}">
+                    </ion-avatar>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="divider"></div>
 </ion-content>

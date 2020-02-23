@@ -111,8 +111,8 @@
   background: #F9F9F9;
   height: 10px;
   width: 100%;
-  margin-top: 3%;
-  margin-bottom: 3%;
+  margin-top: 1%;
+  margin-bottom: 1%;
 }
 .float-l{
   float: left !important;
@@ -153,4 +153,20 @@
 
 .btn-medium{
   height: 42px;
+}
+.custom-class .custom-loading{
+  --background: #ffffff !important;
+  border-radius: 15px !important;
+}
+.modal_options{
+  --max-width: 80%;
+  --width: 100%;
+  border-radius: 0px !important;
+  .alert-wrapper.sc-ion-alert-ios{
+    border-radius: 0 !important;
+    background: #ffffff;
+  }
+  .alert-radio-label.sc-ion-alert-ios{
+    white-space: normal !important;
+  }
 }

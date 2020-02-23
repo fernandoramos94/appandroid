@@ -1,145 +1,101 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button color="danger" icon="arrow-back"></ion-back-button>
+            <ion-back-button icon="arrow-back"></ion-back-button>
         </ion-buttons>
-        <ion-title class="text-c">DETALLES DEL PRODUCTO</ion-title>
+        <ion-title >DETALLES DEL PRODUCTO</ion-title>
     </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-    <ion-item lines="none">
-        <ion-label class="text-wrap">
-            <h1>
-                Súper Combos
-            </h1>
-            <p class="text-wrap" style="white-space: normal !important;">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam architecto omnis cupiditate numquam
-                repellendus
-                atque?
-            </p>
-        </ion-label>
-    </ion-item>
-    <ion-item class="tienda" lines="none">
-        <ion-label slot="start" color="danger">
-            <ion-icon name="business" mode="ios" style="vertical-align: middle;"></ion-icon>
-            Nombre Tienda
-        </ion-label>
-        <ion-label slot="end" class="text-wrap" style="margin-left: 0 !important;">
-            45-55 min
-        </ion-label>
-    </ion-item>
-    <div>
-        <ion-list>
-            <ion-item-group>
-                <ion-item-divider color="light">
-                    <ion-label>Seleccione la bebida</ion-label>
-                    <ion-label slot="end">
-                        <span>Obligatorio</span></ion-label>
-                </ion-item-divider>
-
-                <ion-item lines="full">
-                    <ion-label>Bangladesh</ion-label>
-                    <ion-label slot="end" class="text-r">$3.200</ion-label>
-                    <ion-checkbox slot="end" color="success"></ion-checkbox>
+<ion-content>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-label class="text-wrap">
+                        <h1>
+                            {{details.name}}
+                        </h1>
+                        <p class="text-wrap" style="white-space: normal !important;">
+                            {{details.description}}
+                        </p>
+                    </ion-label>
                 </ion-item>
-                <ion-item lines="full">
-                    <ion-label>Bangladesh</ion-label>
-                    <ion-label slot="end" class="text-r">$3.200</ion-label>
-                    <ion-checkbox slot="end" color="success"></ion-checkbox>
-                </ion-item>
-                <ion-item lines="full">
-                    <ion-label>Bangladesh</ion-label>
-                    <ion-label slot="end" class="text-r">$3.200</ion-label>
-                    <ion-checkbox slot="end" color="success"></ion-checkbox>
-                </ion-item>
-                <ion-item lines="full">
-                    <ion-label>Bangladesh</ion-label>
-                    <ion-label slot="end" class="text-r">$3.200</ion-label>
-                    <ion-checkbox slot="end" color="success"></ion-checkbox>
-                </ion-item>
-            </ion-item-group>
-            <ion-item-group>
-                <ion-item-divider color="light">
-                    <ion-label>Seleccione la bebida</ion-label>
-                    <ion-label slot="end">
-                            <span>Obligatorio</span></ion-label>
-                </ion-item-divider>
-                <ion-radio-group>
-                    <ion-item lines="full">
-                        <ion-label>Bangladesh</ion-label>
-                        <ion-radio slot="end" color="success"></ion-radio>
-                    </ion-item>
-                    <ion-item lines="full">
-                        <ion-label>Bangladesh</ion-label>
-                        <ion-label slot="end" class="text-r">$3.200</ion-label>
-                        <ion-radio slot="end" color="success"></ion-radio>
-                    </ion-item>
-                    <ion-item lines="full">
-                        <ion-label>Bangladesh</ion-label>
-                        <ion-label slot="end" class="text-r">$3.200</ion-label>
-                        <ion-radio slot="end" color="success"></ion-radio>
-                    </ion-item>
-                    <ion-item lines="full">
-                        <ion-label>Bangladesh</ion-label>
-                        <ion-label slot="end" class="text-r">$3.200</ion-label>
-                        <ion-radio slot="end" color="success"></ion-radio>
-                    </ion-item>
-                </ion-radio-group>
-            </ion-item-group>
-
-            <ion-item-group>
-                <ion-item-divider color="light">
-                    <ion-label>Seleccione la bebida</ion-label>
-                </ion-item-divider>
-
-                <ion-item lines="full">
-                    <ion-label>Bangladesh</ion-label>
-                    <ion-label slot="end" class="text-r">$3.200</ion-label>
-                    <ion-checkbox slot="end" color="success"></ion-checkbox>
-                </ion-item>
-                <ion-item lines="full">
-                    <ion-label>Bangladesh</ion-label>
-                    <ion-label slot="end" class="text-r">$3.200</ion-label>
-                    <ion-checkbox slot="end" color="success"></ion-checkbox>
-                </ion-item>
-                <ion-item lines="full">
-                    <ion-label>Bangladesh</ion-label>
-                    <ion-label slot="end" class="text-r">$3.200</ion-label>
-                    <ion-checkbox slot="end" color="success"></ion-checkbox>
-                </ion-item>
-
-            </ion-item-group>
-        </ion-list>
-    </div>
-
+            </ion-col>
+        </ion-row>
+    </ion-grid>
     <div class="divider"></div>
-    <ion-item lines="none">
-        <ion-label>
-            <ion-icon name="paper" mode="ios"></ion-icon>
-            Observación
-        </ion-label>
-    </ion-item>
-    <ion-item class="observaciones" lines="none">
-        <ion-textarea placeholder="Ej: Sin tomate, Sin queso etc" maxlength="140" mode="ios" rows="3"></ion-textarea>
-    </ion-item>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item class="tienda" lines="none">
+                    <ion-label slot="start" style="color:black; font-weight: 400;">
+                        {{details.store}}
+                    </ion-label>
+                    <ion-label slot="end" class="text-wrap" style="margin-left: 0 !important;">
+                        {{details.eta}}
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="divider"></div>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-list>
+                    <ion-item-group *ngFor="let item of details.categories" lines="none">
+                        <ion-item-divider lines='none'>
+                            <ion-label>
+                                <ion-text style="font-weight: 500; color: black;">{{item.description}}</ion-text>
+                                <p *ngIf="item.required == 1" style="font-weight: 300; color: black;">
+                                    {{ item.seleccion == '' ? 'Obligatorio' : item.seleccion}}
+                                </p>
+                                <p *ngIf="item.required != 1" style="font-weight: 300; color: black;">
+                                    {{ item.seleccion == '' ? 'Opcional' : item.seleccion}}
+                                </p>
+                            </ion-label>
+                            <ion-label slot="end">
+                                <span (click)="modalOption(item, details)">{{ item.seleccion == '' ? 'Seleccionar' : 'Modificar'}}</span>
+                            </ion-label>
+                        </ion-item-divider>
+                    </ion-item-group>
+                </ion-list>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <div class="divider"></div>
+    <ion-grid>
+        <ion-row>
+            <ion-col>
+                <ion-item lines="none">
+                    <ion-label>
+                        Observaciones
+                    </ion-label>
+                </ion-item>
+                <ion-item class="observaciones" lines="none">
+                    <ion-textarea placeholder="Ej: Sin tomate, Sin queso etc" maxlength="140" mode="ios" rows="3"></ion-textarea>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
 </ion-content>
 <ion-footer>
     <ion-grid>
         <ion-row>
             <ion-col size=4>
                 <ion-item class="contador" lines="none" color="light">
-                    <ion-icon name="remove" color="danger" mode="ios" (click)="numeroCantidad(false)"></ion-icon>
+                    <ion-icon name="remove" color="danger" mode="ios" (click)="numeroCantidad(false, details.categories, true)"></ion-icon>
                     <ion-label class="text-c">{{cantidad}}</ion-label>
-                    <ion-icon name="add" mode="ios" color="danger" (click)="numeroCantidad(true)"></ion-icon>
+                    <ion-icon name="add" mode="ios" color="danger" (click)="numeroCantidad(true, details.categories, true)"></ion-icon>
                 </ion-item>
             </ion-col>
             <ion-col size=8>
-                <ion-item lines="none" color="danger" class="btn_agregar" (click)="agregarProducto()">
+                <ion-item *ngIf="!habilidar" lines="none" color="danger" [ngClass]=" habilitar == true ? 'btn_agregar' : 'btn_agregar disabled'" (click)="addCart()">
                     <ion-ripple-effect type="unbounded"></ion-ripple-effect>
                     <ion-label>
                         <span>Agregar</span>
-                        <span class="text-r float-r">$35.000</span>
+                        <span class="text-r float-r">{{details.price | currency:"$":true:"1.0"}}</span>
                     </ion-label>
                 </ion-item>
             </ion-col>

@@ -1,9 +1,9 @@
 <ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
-            <ion-back-button color="danger"></ion-back-button>
+            <ion-back-button></ion-back-button>
         </ion-buttons>
-        <ion-title class="text-c">CARRITO</ion-title>
+        <ion-title>CARRITO</ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -31,60 +31,134 @@
         </ion-label>
     </ion-item>
     <div class="divider"></div>
-    <ion-item class="productos">
+    <ion-item class="productos" *ngIf="details">
         <ion-label>
-            <h1>Nombre Tienda</h1>
+            <h1>{{details[0].store}}</h1>
         </ion-label>
     </ion-item>
-    <ion-item class="productos">
-        <ion-label>
-            <span>
-                1x Hamburguesa
-            </span>
-            <span color="danger" class="text-r float-r">
-                $8.900
-            </span>
-        </ion-label>
-    </ion-item>
-    <ion-item class="productos">
-        <ion-label>
-            <span>
-                1x Hamburguesa
-            </span>
-            <span color="danger" class="text-r float-r">
-                $8.900
-            </span>
-        </ion-label>
-    </ion-item>
-    <ion-item class="productos">
+    <div *ngIf="!details">
+        <ion-list>
+            <ion-item>
+                <ion-label>
+                    <p style="height: 30px;">
+                        <ion-skeleton-text animated style="width: 100%;"></ion-skeleton-text>
+                    </p>
+                </ion-label>
+            </ion-item>
+        </ion-list>
+    </div>
+    <ion-list *ngIf="!details">
+        <ion-item>
+            <ion-label>
+                <p style="height: 30px;">
+                    <ion-skeleton-text animated style="width: 80%; display: inline-block;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 15%; float: right;"></ion-skeleton-text>
+                </p>
+                <p>
+                    <ion-skeleton-text animated style="width: 56%; display: block; "></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 53%; display: block; "></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 50%; display: block; "></ion-skeleton-text>
+                </p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <div *ngIf="details">
+        <ion-item class="productos" *ngFor="let item of details">
+            <ion-label class="ion-text-wrap">
+                <span>
+                    {{item.count}}x {{item.product}}<br>
+                    <p slot="end" class="float-r">
+                        {{item.price_total | currency:"$":true:"1.0" }}
+                    </p>
+                </span>
+                <span *ngFor="let item2 of item.detail">
+                    <p *ngFor="let item3 of item2.topping" style="line-height: 1.2; font-size: 13px; color: #777777;">
+                        {{item3.description}}</p>
+                </span>
+
+            </ion-label>
+        </ion-item>
+    </div>
+
+    <ion-list *ngIf="!details">
+        <ion-item>
+            <ion-label>
+                <p style="height: 25px;"> 
+                    <ion-skeleton-text animated style="width: 70%; margin: 0 auto;"></ion-skeleton-text>
+                </p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+
+    <ion-item class="productos" *ngIf="details">
         <ion-label>
             <a style="color: #f04141; display: block;" class="text-c">Agregar más productos</a>
         </ion-label>
     </ion-item>
-    <ion-item class="productos" lines="none">
+    <ion-list *ngIf="!details">
+        <ion-item>
+            <ion-label>
+                <p style="height: 25px;"> 
+                    <ion-skeleton-text animated style="width: 75%; display: inline-block;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 20%; float: right;"></ion-skeleton-text>
+                </p>
+                <p style="height: 25px;">
+                    <ion-skeleton-text animated style="width: 75%; display: inline-block;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 20%; float: right;"></ion-skeleton-text>
+                </p>
+                <p style="height: 25px;">
+                    <ion-skeleton-text animated style="width: 75%; display: inline-block;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 20%; float: right;"></ion-skeleton-text>
+                </p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-item class="productos" lines="none" *ngIf="details">
         <ion-label class="text-wrap">
             <p class="subtotal">
                 <span>Subtotal</span>
-                <span class="text-r float-r">$8.900</span>
+                <span class="text-r float-r" *ngIf="details">{{subtotal(details) | currency:"$":true:"1.0"}}</span>
             </p>
             <p class="subtotal">
                 <span>Costo Domicilio</span>
-                <span class="text-r float-r">$2.900</span>
+                <span class="text-r float-r"
+                    *ngIf="details">{{details[0].delivery_price | currency:"$":true:"1.0"}}</span>
             </p>
             <p class="total">
                 <span>Total</span>
-                <span class="text-r float-r">$11.000</span>
+                <span class="text-r float-r"
+                    *ngIf="details">{{total(details[0].delivery_price, sum) | currency: "$": true: "1.0" }}</span>
             </p>
         </ion-label>
-
     </ion-item>
     <div class="divider"></div>
+
+    <ion-list *ngIf="!details">
+        <ion-item>
+            <ion-label>
+                <p style="height: 30px;"> 
+                    <ion-skeleton-text animated style="width: 75%; display: inline-block;"></ion-skeleton-text>
+                </p>
+            </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label>
+                <p style="height: 25px;"> 
+                    <ion-skeleton-text animated style="width: 75%; display: inline-block;"></ion-skeleton-text>
+                    <ion-skeleton-text animated style="width: 20%; float: right;"></ion-skeleton-text>
+                </p>
+                <p>
+                    <ion-skeleton-text animated style="width: 75%; display: inline-block;"></ion-skeleton-text>
+                </p>
+            </ion-label>
+        </ion-item>
+    </ion-list>
     <ion-item class="productos">
         <ion-label class="text-formaPago">
             Forma de pago
         </ion-label>
     </ion-item>
-    <ion-item class="productos">
+    <ion-item class="productos" *ngIf="details">
         <ion-label class="text-wrap">
             <span>
                 <span>Efectivo</span><br>
@@ -98,20 +172,8 @@
         </ion-label>
 
     </ion-item>
-    <br><br>
-
-    <ion-grid>
-        <ion-row>
-            <ion-col size=6>
-                <ion-button color="success" expand="block" class="btn-medium login" fill="outline">Iniciar Sesion</ion-button>
-            </ion-col>
-            <ion-col size=6>
-                <ion-button color="success" expand="block" class="btn-medium login" fill="outline">Registrarme</ion-button>
-            </ion-col>
-        </ion-row>
-    </ion-grid>
 </ion-content>
-<ion-footer no-border style="display: none;">
+<ion-footer no-border >
     <ion-button color="danger" expand="block" size="medium" class="btn-medium">
         Hacer pedido
     </ion-button>

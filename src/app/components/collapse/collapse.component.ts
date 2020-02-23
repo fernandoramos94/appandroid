@@ -38,6 +38,9 @@ export class CollapseComponent implements OnInit {
     @Input()
     image: string;
 
+    @Input()
+    data: any;
+
 
     /**
      * The change event that will be broadcast to the parent component when the user interacts with the component's
@@ -60,7 +63,8 @@ export class CollapseComponent implements OnInit {
 
     constructor() { }
 
-    ngOnInit() { }
+    ngOnInit() { 
+    }
 
     public toggleAccordion(): void {
         this.isMenuOpen = !this.isMenuOpen;

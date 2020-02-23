@@ -19,7 +19,7 @@ export class DireccionGpsPage implements OnInit {
 
     @ViewChild('map', { static: false }) mapElement: ElementRef;
     map: any;
-    address: string;
+    address: any;
     userLocation;
     userCity;
     latLngResult;

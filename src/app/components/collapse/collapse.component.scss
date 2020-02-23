@@ -17,6 +17,16 @@
         font-size: 20px !important;
     }
 }
+
+.products{
+    --padding-start: 0px;
+    ion-avatar{
+        --border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        padding: 2px;
+    }
+}
 .expand{
     ion-list{
         ion-item{

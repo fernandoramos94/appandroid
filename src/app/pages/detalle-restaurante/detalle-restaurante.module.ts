@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { DetalleRestaurantePage } from './detalle-restaurante.page';
 import { CollapseComponent } from 'src/app/components/collapse/collapse.component';
+import { ExpandedDetailDirective } from 'src/app/directives/expanded-detail.directive';
 
 const routes: Routes = [
   {
@@ -22,6 +23,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [DetalleRestaurantePage, CollapseComponent]
+  declarations: [DetalleRestaurantePage, CollapseComponent, ExpandedDetailDirective]
 })
 export class DetalleRestaurantePageModule {}

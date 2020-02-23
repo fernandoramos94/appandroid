@@ -1,37 +1,40 @@
-<ion-content>
-
-    <div class="contenedor">
-        <h1 class="text-c">
-            Bienvenido
-        </h1>
-        <span class="text-c text-block">
-            Inicie sesión con su cuenta existente
-        </span>
-        <ion-item lines="none">
-            <ion-input type="email" placeholder="E-mail"></ion-input>
-        </ion-item>
-        <ion-item lines="none">
-            <ion-input type="password" placeholder="Contraseña"></ion-input>
-        </ion-item>
-        <ion-button expand="full" (click)="login()" size="large" id="btn-login" class=" btn-login btn-medium " shape="round">
-            Login
-        </ion-button>
-        <br>
-        <fieldset style="border-left: none !important; border-right: none !important; border-bottom: none !important; border-top: 1px solic #ffffff;">
-            <legend class="text-c" style="color: #ffffff; font-size: 18px;">&nbsp;&nbsp;&nbsp;&nbsp; O iniciar con&nbsp;&nbsp;&nbsp;&nbsp; </legend>
-        </fieldset>
-        <ion-button expand="full" (click)="loginFb()" size="large" class="btn-login" shape="round">
-            <ion-icon slot="start" name="logo-facebook" size="large"></ion-icon>
-            <ion-label class="text-c" style="text-transform: capitalize;">
-                Continuar con facebook
-            </ion-label>
-        </ion-button>
-
-        <br>
-        <p class="text-c">
-            Aun no tienes cuenta <a>Registrarme</a>
-        </p>
+<ion-content padding>
+    <div style="display: block; text-align: center; margin-top: 7%;">
+       <img src="../../../assets/icon/img1.png" alt="" srcset="" style="margin: 0 auto"> 
     </div>
+    
+    <ion-list>
+        <ion-label class="text-block text-c text-inicio" text-wrap>
+            Por favor inicie sesión para<br>continuar
+        </ion-label>
+        <ion-item>
+            <ion-label position="floating">Correo</ion-label>
+            <ion-input [(ngModel)]="formUser.correo"></ion-input>
+            <ion-icon name="person" slot="start"></ion-icon>
+        </ion-item>
+        <ion-item>
+            <ion-label position="floating">Contraseña</ion-label>
+            <ion-icon name="key" slot="start"></ion-icon>
+            <ion-input type="password" [(ngModel)]="formUser.contrasena"></ion-input>
+        </ion-item>
+        <ion-item lines='none' detail='true' text-center class="btn_login" (click)="loginApp()">
+            <ion-label style="color: #fff; font-weight: bold;">
+                Iniciar Sesion
+            </ion-label>
+        </ion-item>
+    </ion-list>
+    <ion-list text-center>
+        <ion-label class="text-block">
+            <ion-text>Aun no tienes cuenta?</ion-text> <ion-text> Registrate</ion-text>
+        </ion-label>
+        <ion-label class="text-block">
+            <ion-text>Olvido su contraseña?</ion-text>
+        </ion-label>
+        <ion-label class="text-block">
+            <ion-icon name="remove"></ion-icon> O <ion-icon name="remove"></ion-icon>
+        </ion-label>
 
+        <ion-icon name="logo-facebook" size='large' style="width: 45px; height: 45px;" color='primary' (click)="loginFb()"></ion-icon>
+    </ion-list>
 
 </ion-content>

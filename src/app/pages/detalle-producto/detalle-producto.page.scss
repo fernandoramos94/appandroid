@@ -2,11 +2,18 @@ ion-item{
     --padding-start : 0;
 }
 .tienda{
-    border: solid 1px #f3f3f3;
-    border-radius: 5px;
-    --padding-start: 5px;
-    --padding-end: 5px;
-    margin-top: 2%;
+    // border: solid 1px #f3f3f3;
+    // border-radius: 5px;
+    // --padding-start: 5px;
+    // --padding-end: 5px;
+    // margin-top: 2%;
+}
+.secondary{
+    --color: red;
+}
+.disabled {
+    pointer-events:none; //This makes it not clickable
+    opacity:0.6;         //This grays it out to look disabled
 }
 .observaciones{
     border: 1px solid #f3f3f3;
@@ -20,20 +27,24 @@ ion-item{
 ion-title{
     font-size: 16px;
 }
+.text-r{
+    display: inline-block !important;
+    margin-left: 5px !important;
+}
 ion-item-group{
+    --border: none !important;
     ion-item-divider{
         position: relative !important;
+        --padding-start :0;
+        border-bottom: none;
         ion-label{
             font-size: 17px;
-            font-weight: 700;
+            font-weight: 400;
             span{
-                font-size: 12px;
-                --background: #d3d3dd;
-                background: #d3d3dd;
-                color: #ffffff;
-                padding: 5px 15px 5px;
+                font-size: 14px;
+                color: #FF8750;
+                padding: 5px 0px 5px 15px;
                 margin-right: 10px;
-                border-radius: 20px;
                 position: relative;
                 position: absolute;
                 right: 0;

@@ -1,45 +1,32 @@
-<ion-item (click)="toggleAccordion()" class="item-acordeon" lines="none">
-    <!-- <ion-avatar slot="start">
-        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-    </ion-avatar> -->
-    <ion-label>
-        {{ name }}
-    </ion-label>
-    <ion-icon name="arrow-down" *ngIf="!isMenuOpen" slot="end" mode="ios"></ion-icon>
-    <ion-icon name="arrow-up" *ngIf="isMenuOpen" slot="end" mode="ios"></ion-icon>
-</ion-item>
-<div class="expand" [ngClass]="this.isMenuOpen ? 'animated fadeInLeft' : 'inactive'" style="margin-top: 5%;">
-    <ion-list>
-        <ion-item lines="full" routerLink="/detalle-producto">
-            <ion-label class="text-wrap">
-                Nombre Producto
-                <p>Lorem ipsum, dolor sit.</p>
-                <p>$14.000</p>
-            </ion-label>
-            <ion-thumbnail slot="end">
-                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-            </ion-thumbnail>
-        </ion-item>
-        <ion-item lines="full">
-            <ion-label class="text-wrap">
-                Nombre Producto
-                <p>Lorem ipsum, dolor sit.</p>
-                <p>$14.000</p>
-            </ion-label>
-            <ion-thumbnail slot="end">
-                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-            </ion-thumbnail>
-        </ion-item>
-        <ion-item lines="full">
-            <ion-label class="text-wrap">
-                Nombre Producto
-                <p>Lorem ipsum, dolor sit.</p>
-                <p>$14.000</p>
-            </ion-label>
-            <ion-thumbnail slot="end">
-                <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
-            </ion-thumbnail>
-        </ion-item>
-    </ion-list>
-</div>
+<ion-grid>
+    <ion-row>
+        <ion-col>
+            <ion-item (click)="toggleAccordion()" class="item-acordeon" lines="none">
+                <ion-avatar slot="start">
+                    <img src="https://ionicframework.com/docs/demos/api/avatar/avatar.svg">
+                </ion-avatar>
+                <ion-label>
+                    <b>{{ name }}</b>
+                </ion-label>
+                <ion-icon name="arrow-down" *ngIf="!isMenuOpen" slot="end" mode="ios"></ion-icon>
+                <ion-icon name="arrow-up" *ngIf="isMenuOpen" slot="end" mode="ios"></ion-icon>
+            </ion-item>
+            <div class="expand" [ngClass]="this.isMenuOpen ? 'animated fadeInLeft' : 'inactive'" style="margin-top: 5%;">
+                <ion-list>
+                    <ion-item *ngFor="let item of data" lines="full" routerLink="/detalle-producto/{{item.id_product}}"
+                        class="products">
+                        <ion-label class="text-wrap">
+                            {{item.name}}
+                            <p>{{item.description}}</p>
+                            <p>{{item.price | currency:"$":true:"1.0"}}</p>
+                        </ion-label>
+                        <ion-avatar slot="end">
+                            <img src="https://images.rappi.com/products/{{item.image}}">
+                        </ion-avatar>
+                    </ion-item>
+                </ion-list>
+            </div>
+        </ion-col>
+    </ion-row>
+</ion-grid>
 <div class="divider"></div>
