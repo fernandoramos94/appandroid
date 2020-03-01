@@ -1,7 +1,7 @@
 <ion-header no-border>
     <ion-toolbar>
         <ion-grid>
-            <ion-row #toolbarUno>
+            <ion-row [myScrollVanish]="scrollArea" #toolbar>
                 <ion-col size="12">
                     <ion-item lines="none">
                         <ion-label class="ion-text-wrap color-title">
@@ -32,13 +32,17 @@
         </ion-grid>
     </ion-toolbar>
 </ion-header>
+<!-- <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+  </ion-content> -->
 
-<ion-content myScrollVanish scrollEvents="true" [toolbarUno]="toolbarUno">
+<ion-content #scrollArea scrollEvents="true">
 
-
-    <ion-refresher slot="fixed" pullFactor="0.5" pullMin="100" pullMax="200" class="refresher-native">
+    <!-- <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
         <ion-refresher-content></ion-refresher-content>
-      </ion-refresher>
+    </ion-refresher> -->
 
     <!-- <ion-label class="titulo">
         Recomendados

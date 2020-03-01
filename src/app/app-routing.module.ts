@@ -18,7 +18,8 @@ const routes: Routes = [
   { path: 'detalles-pedido', loadChildren: './pages/detalles-pedido/detalles-pedido.module#DetallesPedidoPageModule' },
   { path: 'cambiar-contrasena', loadChildren: './pages/cambiar-contrasena/cambiar-contrasena.module#CambiarContrasenaPageModule' },
   { path: 'direccion-gps', loadChildren: './pages/direccion-gps/direccion-gps.module#DireccionGpsPageModule' },
-  { path: 'inicio', loadChildren: './pages/inicio/inicio.module#InicioPageModule' }
+  { path: 'inicio', loadChildren: './pages/inicio/inicio.module#InicioPageModule' },
+  { path: 'address', loadChildren: './pages/address/address.module#AddressPageModule' }
 ];
 @NgModule({
   imports: [

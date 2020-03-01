@@ -8,7 +8,6 @@ import { AndroidPermissions } from '@ionic-native/android-permissions/ngx';
 import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { StoresService } from 'src/app/servicios/stores.service';
 import { TagsService } from 'src/app/servicios/tags.service';
-import { error } from 'protractor';
 import { DetailProductService } from 'src/app/servicios/detail-product.service';
 
 
@@ -26,6 +25,7 @@ export class HomePage implements OnInit {
     cargando: any;
     stores: any = [];
     tags: any = [];
+    refresh : any;
     constructor(
         private storage: Storage,
         private loading: LoadingController,
@@ -42,16 +42,26 @@ export class HomePage implements OnInit {
                 this.ventanaDireccion();
             } else {
                 this.locationCoords = res;
-                this.api_rest.stores(this.locationCoords.longitude, this.locationCoords.latitude).subscribe((resp:any)=>{
-                    this.stores = (resp);
-                }, (error)=>{
-                    alert(JSON.stringify(error));
-                });
-                this.tags_service.tags().subscribe((resp)=>{
-                    this.tags = resp;
-                });
+                this.categoriesFun();
+                this.storesFunc();
             }
         })
+    }
+
+    storesFunc(){
+        this.api_rest.stores(this.locationCoords.longitude, this.locationCoords.latitude).subscribe((resp:any)=>{
+            this.stores = (resp);
+            // if(this.refresh){
+            //     this.refresh.target.complete();
+            // }
+        }, (error)=>{
+            alert(JSON.stringify(error));
+        });
+    }
+    categoriesFun(){
+        this.tags_service.tags().subscribe((resp)=>{
+            this.tags = resp;
+        });
     }
 
     async ventanaDireccion() {
@@ -76,11 +86,13 @@ export class HomePage implements OnInit {
         await this.cargando.present();
     }
     doRefresh(event) {
-        console.log('Begin async operation');
-    
-        setTimeout(() => {
-          console.log('Async operation has ended');
-          event.target.complete();
-        }, 2000);
+        // this.refresh = event;
+        this.stores = [];
+        this.tags = [];
+
+        this.storesFunc();
+        this.categoriesFun();
+
+        event.target.complete();
     }
 }

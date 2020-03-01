@@ -133,23 +133,7 @@
   display: block !important;
 }
 
-.modal-borrar{
-  --height: 30% !important;
-  .modal-wrapper{
-    position: absolute;
-    bottom: 0;
-  }
-}
 
-.modal-contrasena{
-  --height: 48% !important;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  .modal-wrapper{
-    position: absolute;
-    bottom: 0;
-  }
-}
 
 .btn-medium{
   height: 42px;

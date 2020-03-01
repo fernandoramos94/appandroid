@@ -3,28 +3,70 @@ import { DomController } from '@ionic/angular';
 
 @Directive({
   selector: '[myScrollVanish]',
-  host: {
-    '(ionScroll)': 'onContentScroll($event)'
-  }
+  // host: {
+  //   '(ionScroll)': 'onContentScroll($event)'
+  // }
 })
 export class ExpandableHeaderDirective {
 
-  @Input('toolbarUno') toolbarUno: any;
+  @Input("myScrollVanish") scrollArea;
 
-  constructor(private element: ElementRef, private renderer: Renderer2, private domCtrl: DomController) { }
+  private hidden: boolean = false;
+  private triggerDistance: number = 20;
+
+  constructor(
+    private element: ElementRef,
+    private renderer: Renderer2,
+    private domCtrl: DomController
+  ) {}
 
   ngOnInit() {
-    this.toolbarUno = this.toolbarUno.el;
-    this.domCtrl.write(() => {
-      this.renderer.setStyle(this.toolbarUno, 'transition', 'margin-top 300ms');
-    })
+    this.initStyles();
+
+    this.scrollArea.ionScroll.subscribe(scrollEvent => {
+      let delta = scrollEvent.detail.deltaY;
+
+      if (scrollEvent.detail.currentY === 0 && this.hidden) {
+        this.show();
+      } else if (!this.hidden && delta > this.triggerDistance) {
+        this.hide();
+      } else if (this.hidden && delta < -this.triggerDistance) {
+        this.show();
+      }
+    });
   }
-  onContentScroll(event: any) {
-    if (event.detail.scrollTop > 30) {
-      this.renderer.setStyle(this.toolbarUno, "margin-top", `-${this.toolbarUno.clientHeight}px`);
-    } else {
-      this.renderer.setStyle(this.toolbarUno, "margin-top", "0");
-    }
+
+  initStyles() {
+    this.domCtrl.write(() => {
+      this.renderer.setStyle(
+        this.element.nativeElement,
+        "transition",
+        "0.3s linear"
+      );
+      this.renderer.setStyle(this.element.nativeElement, "height", "60px");
+    });
+  }
+
+  hide() {
+    this.domCtrl.write(() => {
+      this.renderer.setStyle(this.element.nativeElement, "min-height", "0px");
+      this.renderer.setStyle(this.element.nativeElement, "height", "0px");
+      this.renderer.setStyle(this.element.nativeElement, "opacity", "0");
+      this.renderer.setStyle(this.element.nativeElement, "padding", "0");
+    });
+
+    this.hidden = true;
+  }
+
+  show() {
+    this.domCtrl.write(() => {
+      this.renderer.setStyle(this.element.nativeElement, "height", "60px");
+      this.renderer.removeStyle(this.element.nativeElement, "opacity");
+      this.renderer.removeStyle(this.element.nativeElement, "min-height");
+      this.renderer.removeStyle(this.element.nativeElement, "padding");
+    });
+
+    this.hidden = false;
   }
 
 }

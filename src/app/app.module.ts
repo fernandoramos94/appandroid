@@ -12,7 +12,7 @@ import { AppRoutingModule } from './app-routing.module';
 import {LocationAccuracy} from '@ionic-native/location-accuracy/ngx';
 import {NativeGeocoder} from '@ionic-native/native-geocoder/ngx'
 import { AppComponent } from './app.component';
-import { CambiarContrasenaPageModule } from './pages/cambiar-contrasena/cambiar-contrasena.module';
+// import { CambiarContrasenaPageModule } from './pages/cambiar-contrasena/cambiar-contrasena.module';
 import {AndroidPermissions} from '@ionic-native/android-permissions/ngx';
 import { DireccionGpsPageModule } from './pages/direccion-gps/direccion-gps.module';
 import { GoogleMaps } from '@ionic-native/google-maps/ngx';
@@ -27,7 +27,7 @@ import {HTTP} from '@ionic-native/http/ngx';
     IonicModule.forRoot(), 
     IonicStorageModule.forRoot(), 
     AppRoutingModule, 
-    CambiarContrasenaPageModule,
+    // CambiarContrasenaPageModule,
     LoginPageModule,
     DireccionGpsPageModule,
     HttpClientModule
